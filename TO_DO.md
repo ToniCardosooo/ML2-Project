@@ -6,6 +6,10 @@
 ## Dataset ##
     Sounds
 
+## Setup ##
+    - copy path to files
+        os.chdir(path) 
+        df = pd.read_csv('file.csv')
 
 ## Milestones ##
     - Week 1
