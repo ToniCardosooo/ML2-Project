@@ -24,9 +24,10 @@
     - Week 2
         > Defenição dos modelos
         > Start developing models
-        > Start Report
+        > Cross validation fuction
 
     - Week 3
+        > Start Report
         > Finish Models
         > Acess Models, performace 
         > Read Bonus, strat developing it
