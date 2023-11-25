@@ -51,6 +51,8 @@ def cross_validation_10_fold(compiled_model:keras.models.Model, model_type="CNN"
     metrics = {'accuracy':[], 'confusion_matrix':[]}
     # run cross validation
     for i in range(1, 10+1):
+        print("--------------------------------------")
+        print(f"Running CV - {i}/10")
         # get the train, validation and testing data
         X_train, y_train, X_val, y_val, X_test, y_test = train_val_test_split(i)
 
@@ -110,6 +112,7 @@ def cross_validation_10_fold(compiled_model:keras.models.Model, model_type="CNN"
         y_pred = np.argmax(y_pred, axis=1)
         metrics['accuracy'].append(accuracy_score(y_test, y_pred))
         metrics['confusion_matrix'].append(confusion_matrix(y_test, y_pred))
+        print(f"Accuracy: {metrics['accuracy'][-1]}")
 
         # memory management
         del X_train
