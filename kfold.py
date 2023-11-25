@@ -70,7 +70,7 @@ def cross_validation_10_fold(compiled_model:keras.models.Model, model_type="CNN"
                     numpy_array_float_32(X_train['chromogram'].to_list()),
                     numpy_array_float_32(X_train['chromogram'].to_list()),
                 ],
-                axis=-1)
+                axis=-1).reshape(-1, 321, 4)
             }
             X_val = {
                 'chromagram_input' : numpy_array_float_32(X_val['chromogram'].to_list()),
@@ -82,7 +82,7 @@ def cross_validation_10_fold(compiled_model:keras.models.Model, model_type="CNN"
                     numpy_array_float_32(X_val['chromogram'].to_list()),
                     numpy_array_float_32(X_val['chromogram'].to_list()),
                 ],
-                axis=-1)
+                axis=-1).reshape(-1, 321, 4)
             }
             X_test = {
                 'chromagram_input' : numpy_array_float_32(X_test['chromogram'].to_list()),
@@ -94,7 +94,7 @@ def cross_validation_10_fold(compiled_model:keras.models.Model, model_type="CNN"
                     numpy_array_float_32(X_test['chromogram'].to_list()),
                     numpy_array_float_32(X_test['chromogram'].to_list()),
                 ],
-                axis=-1)
+                axis=-1).reshape(-1, 321, 4)
             }
             # train the model on the current CV iteration data
             compiled_model.fit(
