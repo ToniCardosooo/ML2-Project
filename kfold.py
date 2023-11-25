@@ -74,7 +74,7 @@ def cross_validation_10_fold(compiled_model:keras.models.Model, model_type="CNN"
             compiled_model.fit(
                 x=X_train,
                 y=y_train,
-                #validation_data=(X_val, y_val),
+                validation_data=(X_val, y_val),
                 **fit_params
             )
         
