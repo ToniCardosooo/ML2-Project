@@ -24,20 +24,16 @@ def numpy_array_float_32(data):
 
 def train_val_test_split(test_fold):
     test_df = load_pkl(f"./cnn_folds_dataframes/fold{test_fold}_df.pkl")
+    test_df, val_df = train_test_split(test_df, test_size=0.5, random_state=42, stratify=['classID'])
     train_df = pd.DataFrame(columns=test_df.columns)
-    val_df = pd.DataFrame(columns=test_df.columns)
     print(test_df.columns)
     print(train_df.columns)
     print(val_df.columns)
     for i in range(1, 10+1):
         if i == test_fold: continue
         fold_df = load_pkl(f"./cnn_folds_dataframes/fold{i}_df.pkl")
-        train_fold, val_fold = train_test_split(fold_df, test_size=0.1, random_state=42, stratify=['classID'])
-        train_df = pd.concat([train_df, train_fold], axis=0, join='outer', ignore_index=True)
-        val_df = pd.concat([val_df, val_fold], axis=0, join='outer', ignore_index=True)
+        train_df = pd.concat([train_df, fold_df], axis=0, join='outer', ignore_index=True)
         del fold_df
-        del train_fold
-        del val_fold
     X_train, y_train = train_df.drop(columns=['slice_file_name','classID']), train_df['classID']
     X_val, y_val = val_df.drop(columns=['slice_file_name','classID']), val_df['classID']
     X_test, y_test = test_df.drop(columns=['slice_file_name','classID']), test_df['classID']
