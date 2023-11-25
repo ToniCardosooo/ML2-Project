@@ -18,6 +18,9 @@ def load_pkl(path):
     loaded_data.close()
     return to_return
 
+def numpy_array_float_32(data):
+    return np.asarray(tuple(data)).astype(np.float32)
+
 
 def train_val_test_split(test_fold):
     test_df = load_pkl(f"./cnn_folds_dataframes/fold{test_fold}_df.pkl")
@@ -50,25 +53,48 @@ def cross_validation_10_fold(compiled_model:keras.models.Model, model_type="CNN"
     for i in range(1, 10+1):
         # get the train, validation and testing data
         X_train, y_train, X_val, y_val, X_test, y_test = train_val_test_split(i)
+
+        y_train = numpy_array_float_32(y_train)
+        y_val = numpy_array_float_32(y_val)
+        y_test = numpy_array_float_32(y_test)
+
         if model_type == "CNN":
             # separate the information for the different inputs of the model
             X_train = {
-                'chromagram_input' : X_train['chromogram'].to_numpy(),
-                'mel_spectogram_input': X_train['mel_spectogram'].to_numpy(),
-                'fourier_tempogram': X_train['fourier_tempogram'].to_numpy(),
-                'features_1d': np.stack([X_train['spectral_centroid'].to_numpy(), X_train['spectral_bandwidth'].to_numpy(), X_train['spectral_flatness'].to_numpy(), X_train['spectral_rolloff'].to_numpy()], axis=-1)
+                'chromagram_input' : numpy_array_float_32(X_train['chromogram'].to_list()),
+                'mel_spectogram_input': numpy_array_float_32(X_train['chromogram'].to_list()),
+                'fourier_tempogram': numpy_array_float_32(X_train['chromogram'].to_list()),
+                'features_1d': np.stack([
+                    numpy_array_float_32(X_train['chromogram'].to_list()),
+                    numpy_array_float_32(X_train['chromogram'].to_list()),
+                    numpy_array_float_32(X_train['chromogram'].to_list()),
+                    numpy_array_float_32(X_train['chromogram'].to_list()),
+                ],
+                axis=-1)
             }
             X_val = {
-                'chromagram_input' : X_val['chromogram'].to_numpy(),
-                'mel_spectogram_input': X_val['mel_spectogram'].to_numpy(),
-                'fourier_tempogram': X_val['fourier_tempogram'].to_numpy(),
-                'features_1d': np.stack([X_val['spectral_centroid'].to_numpy(), X_val['spectral_bandwidth'].to_numpy(), X_val['spectral_flatness'].to_numpy(), X_val['spectral_rolloff'].to_numpy()], axis=-1)
+                'chromagram_input' : numpy_array_float_32(X_val['chromogram'].to_list()),
+                'mel_spectogram_input': numpy_array_float_32(X_val['chromogram'].to_list()),
+                'fourier_tempogram': numpy_array_float_32(X_val['chromogram'].to_list()),
+                'features_1d': np.stack([
+                    numpy_array_float_32(X_val['chromogram'].to_list()),
+                    numpy_array_float_32(X_val['chromogram'].to_list()),
+                    numpy_array_float_32(X_val['chromogram'].to_list()),
+                    numpy_array_float_32(X_val['chromogram'].to_list()),
+                ],
+                axis=-1)
             }
             X_test = {
-                'chromagram_input' : X_test['chromogram'].to_numpy(),
-                'mel_spectogram_input': X_test['mel_spectogram'].to_numpy(),
-                'fourier_tempogram': X_test['fourier_tempogram'].to_numpy(),
-                'features_1d': np.stack([X_test['spectral_centroid'].to_numpy(), X_test['spectral_bandwidth'].to_numpy(), X_test['spectral_flatness'].to_numpy(), X_test['spectral_rolloff'].to_numpy()], axis=-1)
+                'chromagram_input' : numpy_array_float_32(X_test['chromogram'].to_list()),
+                'mel_spectogram_input': numpy_array_float_32(X_test['chromogram'].to_list()),
+                'fourier_tempogram': numpy_array_float_32(X_test['chromogram'].to_list()),
+                'features_1d': np.stack([
+                    numpy_array_float_32(X_test['chromogram'].to_list()),
+                    numpy_array_float_32(X_test['chromogram'].to_list()),
+                    numpy_array_float_32(X_test['chromogram'].to_list()),
+                    numpy_array_float_32(X_test['chromogram'].to_list()),
+                ],
+                axis=-1)
             }
             # train the model on the current CV iteration data
             compiled_model.fit(
