@@ -24,11 +24,8 @@ def numpy_array_float_32(data):
 
 def train_val_test_split(test_fold):
     test_df = load_pkl(f"./cnn_folds_dataframes/fold{test_fold}_df.pkl")
-    test_df, val_df = train_test_split(test_df, test_size=0.5, random_state=42, stratify=['classID'])
+    test_df, val_df = train_test_split(test_df, test_size=0.5, random_state=42)
     train_df = pd.DataFrame(columns=test_df.columns)
-    print(test_df.columns)
-    print(train_df.columns)
-    print(val_df.columns)
     for i in range(1, 10+1):
         if i == test_fold: continue
         fold_df = load_pkl(f"./cnn_folds_dataframes/fold{i}_df.pkl")
