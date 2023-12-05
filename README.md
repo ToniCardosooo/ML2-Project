@@ -33,28 +33,28 @@ Finally, an experiment was conducted with the goal of evaluating each model's ro
 
 ## Solutions Implemented
 
-- Convolutional Neural Network
-- Recurrent Neural Network
+- **Convolutional Neural Network**
+- **Recurrent Neural Network**
 
 ## Project Development Phases
 
 ### Convolutional Neural Network
-- **Data Pre-Processing**
-- **Feature Extraction**
+- Data Pre-Processing
+- Feature Extraction
   + Mel-scaled Spectrograms (2D arrays)
   + Chromagrams (2D arrays)
   + Spectral Flatness, Bandwidth, Roll-off, Centroid (1D arrays stacked)
-- **CNN Architecture Definition**
-- **Performance Assessment**
-- **Architecture Changes for Overfit Prevention**
+- CNN Architecture Definition
+- Performance Assessment
+- Architecture Changes for Overfit Prevention
 
 ### Recurrent Neural Network
-- **Data Pre-Processing**
-- **Feature Extraction**
+- Data Pre-Processing
+- Feature Extraction
   + Log Mel-Scaled Spectrograms (2D arrays)
-- **CNN Architecture Definition**
-- **Performance Assessment**
-- **Architecture Changes for Overfit Prevention**
+- CNN Architecture Definition
+- Performance Assessment
+- Architecture Changes for Overfit Prevention
 
 ### Performance Evaluation
 - 10-fold Cross Validation
