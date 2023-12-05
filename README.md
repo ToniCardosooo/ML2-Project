@@ -10,7 +10,7 @@
 ## Description
 
 This project is focused on the development of deep learning models for audio classification.  
-The data used to design and build the models is found in the [UrbanSound8K dataset](https://urbansounddataset.weebly.com/urbansound8k.html) , which was thouroughly used during the development of this project. This dataset contains a total of 8732 labeled audio recordings of urban sounds, each with a duration of up to four seconds. Each excerpt has been labeled with one of the following classes:
+The data used to design and build the models is found in the [UrbanSound8K dataset](https://urbansounddataset.weebly.com/urbansound8k.html) , which was thoroughly used during the development of this project. This dataset contains a total of 8732 labeled audio recordings of urban sounds, each with a duration of up to four seconds. Each excerpt has been labeled with one of the following classes:
 - air conditioner
 - car horn
 - children playing
