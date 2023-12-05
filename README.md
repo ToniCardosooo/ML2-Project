@@ -33,8 +33,8 @@ Finally, an experiment was conducted with the goal of evaluating each model's ro
 
 ## Solutions Implemented
 
-- **Convolutional Neural Network**
-- **Recurrent Neural Network**
+- Convolutional Neural Network
+- Recurrent Neural Network
 
 ## Project Development Phases
 
@@ -58,7 +58,7 @@ Finally, an experiment was conducted with the goal of evaluating each model's ro
 
 ### Performance Evaluation
 - 10-fold Cross Validation
-- Mean and Standard Deviation values of the accuracies obtained in each iteration
+- Mean and Standard Deviation values of the Accuracy obtained in each iteration
 - Confusion Matrix
 
 ### Robustness Evaluation Against Adversarial Examples
