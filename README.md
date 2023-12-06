@@ -11,16 +11,19 @@
 
 This project is focused on the development of deep learning models for audio classification.  
 The data used to design and build the models is found in the [UrbanSound8K dataset](https://urbansounddataset.weebly.com/urbansound8k.html) , which was thoroughly used during the development of this project. This dataset contains a total of 8732 labeled audio recordings of urban sounds, each with a duration of up to four seconds. Each excerpt has been labeled with one of the following classes:
-- air conditioner
-- car horn
-- children playing
-- dog bark
-- drilling
-- engine idling
-- gun shot
-- jackhammer
-- siren
-- street music
+
+| Label | Class ID |
+|:------|:--------:|
+| air conditioner | 0 |
+| car horn | 1 |
+| children playing | 2 |
+| dog bark | 3 |
+| drilling | 4 |
+| engine idling | 5 |
+| gun shot | 6 |
+| jackhammer | 7 |
+| siren | 8 |
+| street music | 9 |
 
 The objective of this project relied on defining, compiling, training and evaluating two Deep Learning (DL) classifiers. The DL model types to be considered were:
 - Multilayer Perceptron (MLP)
