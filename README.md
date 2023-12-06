@@ -33,10 +33,16 @@ Finally, an experiment was conducted with the goal of evaluating each model's ro
 
 ## Solutions Implemented
 
-- Convolutional Neural Network ([CNN Development and Performance Evaluation Notebook](./CNN.ipynb))
-- Recurrent Neural Network with LSTM units ([RNN Development and Performance Evaluation Notebook](./LSTM.ipynb))
+- Convolutional Neural Network
+- Recurrent Neural Network with LSTM units
 
 ## Project Development Phases
+
+_[CNN Development and Performance Evaluation Notebook](./CNN.ipynb)_
+
+_[RNN Development and Performance Evaluation Notebook](./LSTM.ipynb)_
+
+_[Models Robustness Assessment with DeepFool Algorithm](./DeepFool.ipynb)_
 
 ### Convolutional Neural Network
 - Data Pre-Processing
